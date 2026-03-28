@@ -1,0 +1,341 @@
+/* Variables de color y tipografía */
+:root {
+  --color-rojo: #d80000;
+  --color-negro: #000000;
+  --color-negro-fondo: #111111;
+  --color-gris-oscuro: #222222;
+  --color-blanco: #ffffff;
+  --font-main: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0; padding: 0;
+  background-color: var(--color-negro-fondo);
+  color: var(--color-blanco);
+}
+
+/* ------------------- HEADER ------------------- */
+header {
+  background: var(--color-rojo);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; top: 0; z-index: 1000;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-blanco);
+  line-height: 1.1;
+}
+.logo-red { color: var(--color-negro); }
+.logo-sub { font-size: 0.7rem; letter-spacing: 2px; }
+
+header nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--color-blanco);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: opacity 0.3s;
+}
+
+header nav a:hover {
+  opacity: 0.7;
+}
+
+/* ------------------- NOSOTROS (HERO) ------------------- */
+.seccion-nosotros {
+  display: flex;
+  flex-direction: row;
+  height: 85vh; /* Ocupa casi toda la pantalla */
+  min-height: 500px;
+  background-color: var(--color-negro);
+}
+
+.nosotros-slider {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.nosotros-slider .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.nosotros-slider img, .nosotros-slider video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Un degradado sutil en la parte inferior para fundirse */
+.layer-gradient-bottom {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--color-negro-fondo));
+  z-index: 10;
+}
+
+.nosotros-info {
+  width: 50%;
+  background-color: var(--color-negro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.nosotros-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.caja-roja {
+  background-color: var(--color-rojo);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+.caja-roja p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ------------------- PRODUCTOS ------------------- */
+.seccion-productos {
+  padding: 60px 40px;
+  background: radial-gradient(circle at center, #1b1b1b, var(--color-negro-fondo));
+}
+
+.header-productos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+.header-productos h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.header-productos span {
+  font-size: 1rem;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.item-producto {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  aspect-ratio: 1; /* Cuadrado */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.item-producto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s, transform 0.3s;
+}
+
+/* Efecto oscuro sobre la foto y nombre en el centro */
+.item-producto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.item-producto:hover::after {
+  opacity: 0.8;
+}
+
+.item-producto h3 {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  margin: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-blanco);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  width: 90%;
+}
+
+/* ------------------- CONTACTO ------------------- */
+.seccion-contacto {
+  background-color: var(--color-rojo);
+  padding: 20px 40px;
+  text-align: center;
+}
+.seccion-contacto h2 { margin: 0; font-size: 1.5rem;}
+
+/* ------------------- MODAL ------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.activo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--color-negro-fondo);
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.btn-cerrar-modal {
+  position: absolute;
+  top: 15px; right: 20px;
+  background: none; border: none;
+  color: var(--color-blanco);
+  font-size: 2rem; cursor: pointer;
+  z-index: 100;
+}
+
+.modal-layout {
+  display: flex;
+  flex-direction: row;
+  height: 70vh;
+  min-height: 400px;
+}
+
+.modal-slider {
+  width: 65%;
+  background: #000;
+}
+
+.modal-slider .swiper {
+  width: 100%; height: 100%;
+}
+
+.modal-slider img, .modal-slider video {
+  width: 100%; height: 100%; object-fit: contain;
+}
+
+.modal-info {
+  width: 35%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info h3 {
+  color: var(--color-rojo);
+  font-size: 2rem; margin-top: 0;
+}
+
+.modal-info p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+}
+.btn-whatsapp:hover { background-color: #1ebe5d; }
+
+/* ------------------- BOTON FLOTANTE WHATSAPP ------------------- */
+.btn-whatsapp-flotante {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  background-color: #25d366;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999; transition: transform 0.3s;
+}
+.btn-whatsapp-flotante:hover { transform: scale(1.1); }
+
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 992px) {
+  .grid-productos { grid-template-columns: repeat(3, 1fr); }
+  .modal-layout { flex-direction: column; height: auto; }
+  .modal-slider { width: 100%; height: 50vh; }
+  .modal-info { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .seccion-nosotros { flex-direction: column; height: auto; }
+  .nosotros-slider { width: 100%; height: 50vh; }
+  .nosotros-info { width: 100%; padding: 40px 20px; }
+  .caja-roja { max-width: 100%; }
+  
+  .grid-productos { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .header-productos { flex-direction: column; align-items: flex-start; }
+  .header-productos span { margin-top: 5px; }
+}
+
+@media (max-width: 480px) {
+  .grid-productos { grid-template-columns: 1fr; }
+  header { flex-direction: column; padding: 15px; }
+  header nav { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; }
+  header nav a { margin: 0; }
+}

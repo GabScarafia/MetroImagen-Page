@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metro imagen PUBLICITARIA</title>
+  
+  <!-- Google Fonts: Montserrat (Similar a la tipo del diseño) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <!-- Se puede reemplazar por la img del logo real -->
+      <span class="logo-red">Metro</span> imagen<br><span class="logo-sub">PUBLICITARIA</span>
+    </div>
+    <nav>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#productos">PRODUCTOS</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+  </header>
+
+  <!-- Sección Nosotros / Hero (Scroll Automático / Pantalla Completa aprox) -->
+  <section id="nosotros" class="seccion-nosotros">
+    
+    <!-- Lado Izquierdo: Slider de Fotos / Videos -->
+    <div class="nosotros-slider">
+      <div class="swiper swiper-nosotros">
+        <div class="swiper-wrapper" id="nosotros-wrapper">
+          <!-- Inyectado por JS -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <div class="layer-gradient-bottom"></div>
+    </div>
+
+    <!-- Lado Derecho: Textos de Nosotros -->
+    <div class="nosotros-info">
+      <h2>NOSOTROS</h2>
+      <div class="caja-roja">
+        <p id="nosotros-texto">
+          <!-- Inyectado por JS -->
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Sección Productos -->
+  <section id="productos" class="seccion-productos">
+    <div class="header-productos">
+      <h2>PRODUCTOS</h2>
+      <span>RENOVÁ TU IMAGEN</span>
+    </div>
+    
+    <!-- Grilla de productos (Inyectado por JS) -->
+    <div id="contenedor-productos" class="grid-productos"></div>
+  </section>
+  
+  <!-- Sección Contacto -->
+  <section id="contacto" class="seccion-contacto">
+    <h2>CONTACTO</h2>
+  </section>
+
+  <!-- Layout / Modal de Producto Individual -->
+  <div id="modal-producto" class="modal-overlay">
+    <div class="modal-content">
+      <button class="btn-cerrar-modal" id="btn-cerrar-modal">&times;</button>
+      
+      <div class="modal-layout">
+        <!-- Slider Modal -->
+        <div class="modal-slider">
+          <div class="swiper swiper-modal">
+            <div class="swiper-wrapper" id="modal-wrapper">
+              <!-- Inyectado por JS -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next" style="color:#d80000;"></div>
+            <div class="swiper-button-prev" style="color:#d80000;"></div>
+          </div>
+        </div>
+        
+        <!-- Info Modal -->
+        <div class="modal-info">
+          <h3 id="modal-titulo">TÍTULO</h3>
+          <p id="modal-desc">Descripción...</p>
+          <a href="#" id="modal-whatsapp" class="btn-whatsapp" target="_blank">Consultar por esto en WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón WhatsApp global flotante -->
+  <a href="#" id="whatsapp-flotante" class="btn-whatsapp-flotante" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" width="30">
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="datos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
