@@ -23,38 +23,41 @@
       <span class="logo-red">Metro</span> imagen<br><span class="logo-sub">PUBLICITARIA</span>
     </div>
     <nav>
+      <a href="#inicio">INICIO</a>
       <a href="#nosotros">NOSOTROS</a>
       <a href="#productos">PRODUCTOS</a>
       <a href="#contacto">CONTACTO</a>
     </nav>
   </header>
 
-  <!-- Sección Nosotros / Hero (Scroll Automático / Pantalla Completa aprox) -->
+  <!-- Sección Inicio / Hero (Slider Full Width) -->
+  <section id="inicio" class="seccion-inicio">
+    <div class="swiper swiper-inicio" style="width: 100%; height: 100%;">
+      <div class="swiper-wrapper" id="inicio-wrapper"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Sección Nosotros (50/50) -->
   <section id="nosotros" class="seccion-nosotros">
-    
-    <!-- Lado Izquierdo: Slider de Fotos / Videos -->
+    <!-- Mitad Slider -->
     <div class="nosotros-slider">
-      <div class="swiper swiper-nosotros">
-        <div class="swiper-wrapper" id="nosotros-wrapper">
-          <!-- Inyectado por JS -->
-        </div>
+      <div class="swiper swiper-nosotros" style="width: 100%; height: 100%;">
+        <div class="swiper-wrapper" id="nosotros-wrapper"></div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-      <div class="layer-gradient-bottom"></div>
     </div>
-
-    <!-- Lado Derecho: Textos de Nosotros -->
+    <!-- Mitad Info -->
     <div class="nosotros-info">
       <h2>NOSOTROS</h2>
       <div class="caja-roja">
-        <p id="nosotros-texto">
-          <!-- Inyectado por JS -->
-        </p>
+        <p id="nosotros-texto"></p>
       </div>
     </div>
-
   </section>
 
   <!-- Sección Productos -->
@@ -71,6 +74,11 @@
   <!-- Sección Contacto -->
   <section id="contacto" class="seccion-contacto">
     <h2>CONTACTO</h2>
+    <form id="form-contacto" class="formulario-contacto">
+      <input type="text" id="contacto-nombre" name="nombre" placeholder="Nombre / Empresa" required>
+      <textarea id="contacto-mensaje" name="mensaje" rows="4" placeholder="¿Qué querés consultarnos?" required></textarea>
+      <button type="submit">ENVIAR CONSULTA</button>
+    </form>
   </section>
 
   <!-- Layout / Modal de Producto Individual -->

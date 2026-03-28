@@ -2,8 +2,12 @@ const datosWeb = {
   empresa: {
     nombre: "Metro imagen",
     whatsapp: "+54 9 11 3494-0132",
-    email: "info@metroimagen.com",
+    email: "gabriel.hugo.s@gmail.com",
     descripcionNosotros: "Con más de 30 años de experiencia en la industria diseñamos, fabricamos e instalamos letreros, marquesinas y estructuras publicitarias que responden a las necesidades de cada cliente.",
+    mediaInicio: [
+      "img/nosotros/foto1.jpg",
+      "img/nosotros/foto2.jpg"
+    ],
     mediaNosotros: [
       // Ejemplo de cómo enlazar fotos locales:
       "img/nosotros/foto1.jpg",

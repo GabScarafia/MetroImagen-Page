@@ -3,9 +3,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   configurarWhatsAppFlotante();
+  renderizarInicio();
   renderizarNosotros();
   renderizarProductos();
   configurarModal();
+  configurarFormularioContacto();
 
 });
 
@@ -18,6 +20,26 @@ function configurarWhatsAppFlotante() {
   }
 }
 
+// Configurar formulario de contacto
+function configurarFormularioContacto() {
+  const form = document.getElementById('form-contacto');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('contacto-nombre').value.trim();
+      const mensaje = document.getElementById('contacto-mensaje').value.trim();
+      if (!nombre || !mensaje) return;
+
+      const emailDestino = datosWeb.empresa.email;
+      const paramSubject = encodeURIComponent(`Consulta Web - ${nombre}`);
+      const paramBody = encodeURIComponent(`Hola, mi nombre es ${nombre}.\n\nConsulta:\n${mensaje}`);
+      
+      const mailtoLink = `mailto:${emailDestino}?subject=${paramSubject}&body=${paramBody}`;
+      window.location.href = mailtoLink;
+    });
+  }
+}
+
 // Genera un tag IMG o VIDEO dependiendo de la URL (si termina en .mp4 / .webm asume video)
 function crearMediaTag(url, altText) {
   const extension = url.split('.').pop().toLowerCase();
@@ -26,6 +48,39 @@ function crearMediaTag(url, altText) {
     return `<video src="${url}" autoplay loop muted playsinline></video>`;
   } else {
     return `<img src="${url}" alt="${altText}">`;
+  }
+}
+
+function renderizarInicio() {
+  const inicio = datosWeb.empresa.mediaInicio || [];
+  const sliderWrapper = document.getElementById('inicio-wrapper');
+
+  if (sliderWrapper && inicio.length > 0) {
+    let html = '';
+    inicio.forEach(mediaUrl => {
+      html += `
+        <div class="swiper-slide">
+          ${crearMediaTag(mediaUrl, 'Inicio Metro Imagen')}
+        </div>
+      `;
+    });
+    sliderWrapper.innerHTML = html;
+
+    new Swiper('.swiper-inicio', {
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-inicio .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-inicio .swiper-button-next',
+        prevEl: '.swiper-inicio .swiper-button-prev',
+      },
+    });
   }
 }
 
@@ -45,7 +100,7 @@ function renderizarNosotros() {
     nosotros.forEach(mediaUrl => {
       html += `
         <div class="swiper-slide">
-          ${crearMediaTag(mediaUrl, 'Metro Imagen Publicitaria')}
+          ${crearMediaTag(mediaUrl, 'Metro Imagen Nosotros')}
         </div>
       `;
     });
@@ -59,12 +114,12 @@ function renderizarNosotros() {
         disableOnInteraction: false,
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: '.swiper-nosotros .swiper-pagination',
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-nosotros .swiper-button-next',
+        prevEl: '.swiper-nosotros .swiper-button-prev',
       },
     });
   }
@@ -144,6 +199,8 @@ window.abrirModal = function(id) {
 
   // Mostrar modal
   modal.classList.add('activo');
+  document.body.classList.add('no-scroll');
+  document.documentElement.classList.add('no-scroll');
 
   // Iniciar nuevo slider
   modalSwiperInstance = new Swiper('.swiper-modal', {
@@ -166,6 +223,9 @@ function cerrarModal() {
     modal.classList.remove('activo');
   }
   
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+
   // Pausar cualquier video que haya quedado reproduciendo adentro
   const videos = modal.querySelectorAll('video');
   videos.forEach(v => v.pause());

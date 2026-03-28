@@ -10,6 +10,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 80px; 
+}
+
+section {
+  width: 100%;
+  height: calc(100vh - 80px);
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  overflow: hidden; 
 }
 
 body {
@@ -27,6 +37,8 @@ header {
   justify-content: space-between;
   align-items: center;
   position: sticky; top: 0; z-index: 1000;
+  height: 80px;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -51,86 +63,66 @@ header nav a:hover {
   opacity: 0.7;
 }
 
-/* ------------------- NOSOTROS (HERO) ------------------- */
+/* ------------------- INICIO ------------------- */
+.seccion-inicio {
+  position: relative;
+  background-color: var(--color-negro);
+}
+.seccion-inicio .swiper-slide img, .seccion-inicio .swiper-slide video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.seccion-inicio .swiper-button-next,
+.seccion-inicio .swiper-button-prev { color: var(--color-rojo); transform: scale(1.5); }
+.seccion-inicio .swiper-pagination-bullet { background: var(--color-blanco); opacity: 0.7; }
+.seccion-inicio .swiper-pagination-bullet-active { background: var(--color-blanco); opacity: 1; }
+
+/* ------------------- NOSOTROS (50/50 Split) ------------------- */
 .seccion-nosotros {
   display: flex;
   flex-direction: row;
-  height: 85vh; /* Ocupa casi toda la pantalla */
-  min-height: 500px;
   background-color: var(--color-negro);
 }
-
 .nosotros-slider {
-  width: 50%;
-  position: relative;
-  overflow: hidden;
+  width: 50%; height: 100%; position: relative;
 }
-
-.nosotros-slider .swiper {
-  width: 100%;
-  height: 100%;
+.nosotros-slider .swiper-slide img, .nosotros-slider .swiper-slide video {
+  width: 100%; height: 100%; object-fit: cover;
 }
-
-.nosotros-slider img, .nosotros-slider video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Un degradado sutil en la parte inferior para fundirse */
-.layer-gradient-bottom {
-  position: absolute;
-  bottom: 0; left: 0; width: 100%; height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--color-negro-fondo));
-  z-index: 10;
-}
-
 .nosotros-info {
-  width: 50%;
+  width: 50%; height: 100%;
   background-color: var(--color-negro);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 40px; box-sizing: border-box;
 }
-
 .nosotros-info h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 2rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; text-align: center; color: var(--color-blanco);
 }
-
 .caja-roja {
-  background-color: var(--color-rojo);
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 80%;
+  background-color: var(--color-rojo); padding: 30px; border-radius: 12px; max-width: 80%;
 }
-
 .caja-roja p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.6;
+  margin: 0; font-size: 1.1rem; font-weight: 500; line-height: 1.6; color: var(--color-blanco);
 }
 
 /* ------------------- PRODUCTOS ------------------- */
 .seccion-productos {
-  padding: 60px 40px;
+  padding: 40px;
   background: radial-gradient(circle at center, #1b1b1b, var(--color-negro-fondo));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-productos {
+  width: 100%;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #d4af37;
   padding-bottom: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .header-productos h2 {
@@ -146,6 +138,8 @@ header nav a:hover {
 }
 
 .grid-productos {
+  width: 100%;
+  max-width: min(1100px, calc((100vh - 250px) * 1.6));
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -153,8 +147,9 @@ header nav a:hover {
 
 .item-producto {
   background-color: #f1f1f1;
-  border-radius: 8px;
-  aspect-ratio: 1; /* Cuadrado */
+  border-radius: 12px;
+  aspect-ratio: 4 / 5;
+  width: 100%;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -178,8 +173,8 @@ header nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
-  opacity: 0.6;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  opacity: 0.4;
   transition: opacity 0.3s;
 }
 
@@ -199,15 +194,62 @@ header nav a:hover {
   color: var(--color-blanco);
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
   width: 90%;
+  opacity: 1;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.item-producto:hover h3 {
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* ------------------- CONTACTO ------------------- */
 .seccion-contacto {
   background-color: var(--color-rojo);
-  padding: 20px 40px;
+  padding: 40px;
   text-align: center;
+  display: flex; flex-direction: column; justify-content: center;
 }
-.seccion-contacto h2 { margin: 0; font-size: 1.5rem;}
+.seccion-contacto h2 { margin: 0 0 30px 0; font-size: 1.5rem; color: var(--color-blanco); }
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: 2px solid var(--color-negro);
+}
+
+.formulario-contacto button {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-contacto button:hover {
+  background-color: var(--color-gris-oscuro);
+}
 
 /* ------------------- MODAL ------------------- */
 .modal-overlay {
@@ -316,26 +358,42 @@ header nav a:hover {
 
 /* ------------------- RESPONSIVE ------------------- */
 @media (max-width: 992px) {
-  .grid-productos { grid-template-columns: repeat(3, 1fr); }
   .modal-layout { flex-direction: column; height: auto; }
   .modal-slider { width: 100%; height: 50vh; }
   .modal-info { width: 100%; }
 }
 
 @media (max-width: 768px) {
-  .seccion-nosotros { flex-direction: column; height: auto; }
-  .nosotros-slider { width: 100%; height: 50vh; }
-  .nosotros-info { width: 100%; padding: 40px 20px; }
+  .seccion-nosotros { flex-direction: column; }
+  .nosotros-slider { width: 100%; height: 50%; }
+  .nosotros-info { width: 100%; height: 50%; padding: 20px; }
   .caja-roja { max-width: 100%; }
   
-  .grid-productos { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .grid-productos { 
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(4, minmax(0, 1fr)); 
+    gap: 10px; 
+    height: 100%;
+    max-width: 100%;
+  }
+  .item-producto {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
   .header-productos { flex-direction: column; align-items: flex-start; }
   .header-productos span { margin-top: 5px; }
 }
 
 @media (max-width: 480px) {
-  .grid-productos { grid-template-columns: 1fr; }
-  header { flex-direction: column; padding: 15px; }
-  header nav { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; }
+  header { flex-direction: column; height: 100px; padding: 10px; }
+  header nav { margin-top: 5px; width: 100%; display: flex; justify-content: space-around; }
   header nav a { margin: 0; }
+  section { height: calc(100vh - 100px); }
+  html { scroll-padding-top: 100px; }
+}
+
+/* Evitar scroll de fondo con modal abierto */
+.no-scroll {
+  overflow: hidden !important;
 }
