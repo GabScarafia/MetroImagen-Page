@@ -8,8 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
   renderizarProductos();
   configurarModal();
   configurarFormularioContacto();
+  configurarMenuMobile();
 
 });
+
+// Configurar menú móvil
+function configurarMenuMobile() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('activo');
+      navMenu.classList.toggle('activo');
+    });
+
+    // Cerrar menú al hacer click en un link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('activo');
+        navMenu.classList.remove('activo');
+      });
+    });
+  }
+}
 
 // Configurar botón general 
 function configurarWhatsAppFlotante() {

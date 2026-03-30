@@ -1,17 +1,20 @@
 /* Variables de color y tipografía */
 :root {
-  --color-rojo: #d80000;
-  --color-negro: #000000;
-  --color-negro-fondo: #111111;
-  --color-gris-oscuro: #222222;
+  --color-rojo: #e20613;
+  --color-negro: #0c0c0c;
+  --color-negro-fondo: #0c0c0c;
+  --color-gris-oscuro: #0c0c0c;
   --color-blanco: #ffffff;
+  --color-gris-logo-1: #b2b2b2;
+  --color-gris-logo-2: #9c9b9b;
   --font-main: 'Montserrat', sans-serif;
+  --font-logo: 'Rockwell Nova', 'Rockwell', serif;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  scroll-padding-top: 80px; 
+  scroll-padding-top: 80px;
 }
 
 section {
@@ -19,14 +22,68 @@ section {
   height: calc(100vh - 80px);
   box-sizing: border-box;
   scroll-snap-align: start;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 body {
   font-family: var(--font-main);
-  margin: 0; padding: 0;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
   background-color: var(--color-negro-fondo);
   color: var(--color-blanco);
+}
+
+/* Hamburguesa Menu (Desktop Oculto) */
+.menu-toggle {
+  display: none;
+  background: var(--color-rojo);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  width: 45px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-blanco);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.menu-toggle.activo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.activo span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.activo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Footer */
+.footer {
+  background-color: #0c0c0c;
+  color: var(--color-negro);
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.footer p {
+  margin: 0;
 }
 
 /* ------------------- HEADER ------------------- */
@@ -36,19 +93,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; top: 0; z-index: 1000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   height: 80px;
   box-sizing: border-box;
 }
 
 .logo {
+  font-family: var(--font-logo);
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--color-blanco);
   line-height: 1.1;
 }
-.logo-red { color: var(--color-negro); }
-.logo-sub { font-size: 0.7rem; letter-spacing: 2px; }
+
+.logo-gris-1 {
+  color: var(--color-gris-logo-1);
+}
+
+.logo-gris-2 {
+  color: var(--color-gris-logo-2);
+  font-weight: normal;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
 
 header nav a {
   margin-left: 25px;
@@ -68,13 +137,29 @@ header nav a:hover {
   position: relative;
   background-color: var(--color-negro);
 }
-.seccion-inicio .swiper-slide img, .seccion-inicio .swiper-slide video {
-  width: 100%; height: 100%; object-fit: cover;
+
+.seccion-inicio .swiper-slide img,
+.seccion-inicio .swiper-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
+
 .seccion-inicio .swiper-button-next,
-.seccion-inicio .swiper-button-prev { color: var(--color-rojo); transform: scale(1.5); }
-.seccion-inicio .swiper-pagination-bullet { background: var(--color-blanco); opacity: 0.7; }
-.seccion-inicio .swiper-pagination-bullet-active { background: var(--color-blanco); opacity: 1; }
+.seccion-inicio .swiper-button-prev {
+  color: var(--color-rojo);
+  transform: scale(1.5);
+}
+
+.seccion-inicio .swiper-pagination-bullet {
+  background: var(--color-blanco);
+  opacity: 0.7;
+}
+
+.seccion-inicio .swiper-pagination-bullet-active {
+  background: var(--color-blanco);
+  opacity: 1;
+}
 
 /* ------------------- NOSOTROS (50/50 Split) ------------------- */
 .seccion-nosotros {
@@ -82,26 +167,54 @@ header nav a:hover {
   flex-direction: row;
   background-color: var(--color-negro);
 }
+
 .nosotros-slider {
-  width: 50%; height: 100%; position: relative;
+  width: 50%;
+  height: 100%;
+  position: relative;
 }
-.nosotros-slider .swiper-slide img, .nosotros-slider .swiper-slide video {
-  width: 100%; height: 100%; object-fit: cover;
+
+.nosotros-slider .swiper-slide img,
+.nosotros-slider .swiper-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
+
 .nosotros-info {
-  width: 50%; height: 100%;
+  width: 50%;
+  height: 100%;
   background-color: var(--color-negro);
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  padding: 40px; box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
 }
+
 .nosotros-info h2 {
-  font-size: 2rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; text-align: center; color: var(--color-blanco);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--color-blanco);
 }
+
 .caja-roja {
-  background-color: var(--color-rojo); padding: 30px; border-radius: 12px; max-width: 80%;
+  background-color: var(--color-rojo);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 80%;
 }
+
 .caja-roja p {
-  margin: 0; font-size: 1.1rem; font-weight: 500; line-height: 1.6; color: var(--color-blanco);
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-blanco);
 }
 
 /* ------------------- PRODUCTOS ------------------- */
@@ -158,7 +271,7 @@ header nav a:hover {
 
 .item-producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .item-producto img {
@@ -173,7 +286,7 @@ header nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
   opacity: 0.4;
   transition: opacity 0.3s;
 }
@@ -184,7 +297,8 @@ header nav a:hover {
 
 .item-producto h3 {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   margin: 0;
@@ -192,7 +306,7 @@ header nav a:hover {
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--color-blanco);
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   width: 90%;
   opacity: 1;
   transition: opacity 0.3s, transform 0.3s;
@@ -207,9 +321,16 @@ header nav a:hover {
   background-color: var(--color-rojo);
   padding: 40px;
   text-align: center;
-  display: flex; flex-direction: column; justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.seccion-contacto h2 { margin: 0 0 30px 0; font-size: 1.5rem; color: var(--color-blanco); }
+
+.seccion-contacto h2 {
+  margin: 0 0 30px 0;
+  font-size: 1.5rem;
+  color: var(--color-blanco);
+}
 
 .formulario-contacto {
   display: flex;
@@ -226,6 +347,7 @@ header nav a:hover {
   border: none;
   border-radius: 8px;
   font-family: var(--font-main);
+  font-weight: 300;
   font-size: 1rem;
   box-sizing: border-box;
 }
@@ -282,10 +404,13 @@ header nav a:hover {
 
 .btn-cerrar-modal {
   position: absolute;
-  top: 15px; right: 20px;
-  background: none; border: none;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
   color: var(--color-blanco);
-  font-size: 2rem; cursor: pointer;
+  font-size: 2rem;
+  cursor: pointer;
   z-index: 100;
 }
 
@@ -302,11 +427,15 @@ header nav a:hover {
 }
 
 .modal-slider .swiper {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.modal-slider img, .modal-slider video {
-  width: 100%; height: 100%; object-fit: contain;
+.modal-slider img,
+.modal-slider video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .modal-info {
@@ -319,7 +448,8 @@ header nav a:hover {
 
 .modal-info h3 {
   color: var(--color-rojo);
-  font-size: 2rem; margin-top: 0;
+  font-size: 2rem;
+  margin-top: 0;
 }
 
 .modal-info p {
@@ -340,57 +470,204 @@ header nav a:hover {
   font-size: 1.1rem;
   transition: background 0.3s;
 }
-.btn-whatsapp:hover { background-color: #1ebe5d; }
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
 
 /* ------------------- BOTON FLOTANTE WHATSAPP ------------------- */
 .btn-whatsapp-flotante {
   position: fixed;
-  bottom: 30px; right: 30px;
+  bottom: 30px;
+  right: 30px;
   background-color: #25d366;
-  width: 60px; height: 60px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  display: flex; justify-content: center; align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999; transition: transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.3s;
 }
-.btn-whatsapp-flotante:hover { transform: scale(1.1); }
+
+.btn-whatsapp-flotante:hover {
+  transform: scale(1.1);
+}
 
 
 /* ------------------- RESPONSIVE ------------------- */
 @media (max-width: 992px) {
-  .modal-layout { flex-direction: column; height: auto; }
-  .modal-slider { width: 100%; height: 50vh; }
-  .modal-info { width: 100%; }
+  .modal-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .modal-slider {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .modal-info {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
-  .seccion-nosotros { flex-direction: column; }
-  .nosotros-slider { width: 100%; height: 50%; }
-  .nosotros-info { width: 100%; height: 50%; padding: 20px; }
-  .caja-roja { max-width: 100%; }
-  
-  .grid-productos { 
-    grid-template-columns: repeat(2, 1fr); 
-    grid-template-rows: repeat(4, minmax(0, 1fr)); 
-    gap: 10px; 
-    height: 100%;
-    max-width: 100%;
-  }
-  .item-producto {
-    aspect-ratio: auto;
-    height: 100%;
+
+  /* Header y Nav Mobile */
+  header {
+    background: var(--color-negro);
+    height: 70px;
+    padding: 10px 20px;
   }
 
-  .header-productos { flex-direction: column; align-items: flex-start; }
-  .header-productos span { margin-top: 5px; }
+  .menu-toggle {
+    display: flex;
+  }
+
+  #nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--color-negro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  #nav-menu.activo {
+    transform: translateY(0);
+  }
+
+  header nav a {
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+
+  /* Rediseño "Inicio + Nosotros" */
+  .seccion-inicio {
+    display: none !important;
+    /* Ocultar seccion inicio */
+  }
+
+  .seccion-nosotros {
+    height: calc(100vh - 70px);
+    position: relative;
+    display: block;
+  }
+
+  .nosotros-slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .nosotros-slider .swiper-slide img,
+  .nosotros-slider .swiper-slide video {
+    object-fit: cover;
+  }
+
+  .nosotros-slider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .nosotros-info {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+  }
+
+  .nosotros-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .caja-roja {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 90%;
+  }
+
+  /* Rediseño Productos Circulares */
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 30px 15px;
+    height: auto;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .item-producto {
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+
+  .item-producto h3 {
+    font-size: 1rem;
+  }
+
+  .header-productos {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-productos span {
+    margin-top: 5px;
+  }
+
+  /* Ajuste de form contacto y color */
+  .formulario-contacto {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
 }
 
 @media (max-width: 480px) {
-  header { flex-direction: column; height: 100px; padding: 10px; }
-  header nav { margin-top: 5px; width: 100%; display: flex; justify-content: space-around; }
-  header nav a { margin: 0; }
-  section { height: calc(100vh - 100px); }
-  html { scroll-padding-top: 100px; }
+  section {
+    height: calc(100vh - 70px);
+  }
+
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  /* Slider y texto más chicos */
+  .nosotros-info h2 {
+    font-size: 2rem;
+  }
+
+  .caja-roja {
+    padding: 15px;
+  }
 }
 
 /* Evitar scroll de fondo con modal abierto */

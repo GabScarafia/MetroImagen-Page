@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metro imagen PUBLICITARIA</title>
-  
-  <!-- Google Fonts: Montserrat (Similar a la tipo del diseño) -->
+  <title>METRO IMAGEN</title>
+
+  <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+
   <!-- Swiper.js CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo">
-      <!-- Se puede reemplazar por la img del logo real -->
-      <span class="logo-red">Metro</span> imagen<br><span class="logo-sub">PUBLICITARIA</span>
+      METRO <span class="logo-gris-1">IMAGEN</span> <span class="logo-gris-2"></span>
     </div>
-    <nav>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-menu">
       <a href="#inicio">INICIO</a>
       <a href="#nosotros">NOSOTROS</a>
       <a href="#productos">PRODUCTOS</a>
@@ -66,26 +69,32 @@
       <h2>PRODUCTOS</h2>
       <span>RENOVÁ TU IMAGEN</span>
     </div>
-    
+
     <!-- Grilla de productos (Inyectado por JS) -->
     <div id="contenedor-productos" class="grid-productos"></div>
   </section>
-  
+
   <!-- Sección Contacto -->
   <section id="contacto" class="seccion-contacto">
     <h2>CONTACTO</h2>
     <form id="form-contacto" class="formulario-contacto">
       <input type="text" id="contacto-nombre" name="nombre" placeholder="Nombre / Empresa" required>
-      <textarea id="contacto-mensaje" name="mensaje" rows="4" placeholder="¿Qué querés consultarnos?" required></textarea>
+      <textarea id="contacto-mensaje" name="mensaje" rows="4" placeholder="¿Qué querés consultarnos?"
+        required></textarea>
       <button type="submit">ENVIAR CONSULTA</button>
     </form>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>pie de pagina</p>
+  </footer>
 
   <!-- Layout / Modal de Producto Individual -->
   <div id="modal-producto" class="modal-overlay">
     <div class="modal-content">
       <button class="btn-cerrar-modal" id="btn-cerrar-modal">&times;</button>
-      
+
       <div class="modal-layout">
         <!-- Slider Modal -->
         <div class="modal-slider">
@@ -98,7 +107,7 @@
             <div class="swiper-button-prev" style="color:#d80000;"></div>
           </div>
         </div>
-        
+
         <!-- Info Modal -->
         <div class="modal-info">
           <h3 id="modal-titulo">TÍTULO</h3>
@@ -119,4 +128,5 @@
   <script src="datos.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

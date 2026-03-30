@@ -10,8 +10,9 @@ const datosWeb = {
     ],
     mediaNosotros: [
       // Ejemplo de cómo enlazar fotos locales:
-      "img/nosotros/foto1.jpg",
-      "img/nosotros/foto2.jpg"
+      "img/nosotros/01.jpeg",
+      "img/nosotros/ej.mp4",
+      "img/nosotros/02.png"
       // Si tuvieras un video, lo agregas así: "img/nosotros/mivideo.mp4"
     ]
   },
