@@ -5,8 +5,7 @@ const datosWeb = {
     email: "gabriel.hugo.s@gmail.com",
     descripcionNosotros: "Con más de 30 años de experiencia en la industria diseñamos, fabricamos e instalamos letreros, marquesinas y estructuras publicitarias que responden a las necesidades de cada cliente.",
     mediaInicio: [
-      "img/nosotros/foto1.jpg",
-      "img/nosotros/foto2.jpg"
+      "img/inicio/02.png"
     ],
     mediaNosotros: [
       // Ejemplo de cómo enlazar fotos locales:
@@ -20,10 +19,10 @@ const datosWeb = {
     {
       id: "letras",
       titulo: "LETRAS",
-      portada: "img/productos/letras/portada.jpg",
+      portada: "img/productos/letras/01.jpeg",
       descripcion: "Letras corpóreas de distintos materiales y acabados.",
       media: [
-        "img/productos/letras/foto1.jpg",
+        "img/productos/letras/01.jpeg",
         "img/productos/letras/foto2.jpg"
       ]
     },
