@@ -149,20 +149,49 @@ function renderizarNosotros() {
 }
 
 function renderizarProductos() {
-  const contenedor = document.getElementById('contenedor-productos');
-  if(!contenedor) return;
+  const wrapper = document.getElementById('contenedor-secciones-productos');
+  if(!wrapper) return;
+
+  const chunkSize = 4;
+  const chunks = [];
+  for (let i = 0; i < datosWeb.productos.length; i += chunkSize) {
+    chunks.push(datosWeb.productos.slice(i, i + chunkSize));
+  }
 
   let htmlLocal = '';
-  datosWeb.productos.forEach(prod => {
-    htmlLocal += `
-      <div class="item-producto" onclick="abrirModal('${prod.id}')">
-        <img src="${prod.portada}" alt="${prod.titulo}">
-        <h3>${prod.titulo}</h3>
+
+  chunks.forEach((chunk, index) => {
+    // El cliente solicitó que el título de productos sea visible en TODAS las secciones
+    const headerHtml = `
+      <div class="header-productos">
+        <h2>PRODUCTOS</h2>
+        <span>RENOVÁ TU IMAGEN</span>
       </div>
+    `;
+
+    const secId = index === 0 ? 'id="productos"' : '';
+
+    let itemsHtml = '';
+    chunk.forEach(prod => {
+      itemsHtml += `
+        <div class="item-producto" onclick="abrirModal('${prod.id}')">
+          <img src="${prod.portada}" alt="${prod.titulo}">
+          <h3>${prod.titulo}</h3>
+        </div>
+      `;
+    });
+
+    htmlLocal += `
+      <section ${secId} class="seccion-productos">
+        ${headerHtml}
+        <div class="grid-productos">
+          ${itemsHtml}
+        </div>
+      </section>
     `;
   });
 
-  contenedor.innerHTML = htmlLocal;
+  wrapper.innerHTML = htmlLocal;
 }
 
 // Variables globales para el modal
