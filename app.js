@@ -68,7 +68,7 @@ function crearMediaTag(url, altText) {
   const extension = url.split('.').pop().toLowerCase();
   // Validación básica por extensión
   if (extension.includes('mp4') || extension.includes('webm')) {
-    return `<video src="${url}" autoplay loop muted playsinline></video>`;
+    return `<video src="${url}" autoplay muted playsinline></video>`;
   } else {
     return `<img src="${url}" alt="${altText}">`;
   }
@@ -92,7 +92,7 @@ function renderizarInicio() {
     new Swiper('.swiper-inicio', {
       loop: true,
       autoplay: {
-        delay: 3500,
+        delay: 10000,
         disableOnInteraction: false,
       },
       pagination: {
@@ -103,6 +103,27 @@ function renderizarInicio() {
         nextEl: '.swiper-inicio .swiper-button-next',
         prevEl: '.swiper-inicio .swiper-button-prev',
       },
+      on: {
+        slideChangeTransitionStart: function () {
+          const videos = this.el.querySelectorAll('video');
+          videos.forEach(v => { v.pause(); v.currentTime = 0; });
+        },
+        slideChangeTransitionEnd: function () {
+          const activeSlide = this.slides[this.activeIndex];
+          const video = activeSlide.querySelector('video');
+          if (video) {
+            this.autoplay.stop();
+            video.currentTime = 0;
+            video.play().catch(e => console.log('Autoplay prevent', e));
+            video.onended = () => {
+              this.slideNext();
+              this.autoplay.start();
+            };
+          } else {
+            this.autoplay.start();
+          }
+        }
+      }
     });
   }
 }
@@ -133,7 +154,7 @@ function renderizarNosotros() {
     new Swiper('.swiper-nosotros', {
       loop: true,
       autoplay: {
-        delay: 3500,
+        delay: 10000,
         disableOnInteraction: false,
       },
       pagination: {
@@ -144,6 +165,27 @@ function renderizarNosotros() {
         nextEl: '.swiper-nosotros .swiper-button-next',
         prevEl: '.swiper-nosotros .swiper-button-prev',
       },
+      on: {
+        slideChangeTransitionStart: function () {
+          const videos = this.el.querySelectorAll('video');
+          videos.forEach(v => { v.pause(); v.currentTime = 0; });
+        },
+        slideChangeTransitionEnd: function () {
+          const activeSlide = this.slides[this.activeIndex];
+          const video = activeSlide.querySelector('video');
+          if (video) {
+            this.autoplay.stop();
+            video.currentTime = 0;
+            video.play().catch(e => console.log('Autoplay prevent', e));
+            video.onended = () => {
+              this.slideNext();
+              this.autoplay.start();
+            };
+          } else {
+            this.autoplay.start();
+          }
+        }
+      }
     });
   }
 }
@@ -152,7 +194,8 @@ function renderizarProductos() {
   const wrapper = document.getElementById('contenedor-secciones-productos');
   if(!wrapper) return;
 
-  const chunkSize = 4;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const chunkSize = isMobile ? 4 : datosWeb.productos.length;
   const chunks = [];
   for (let i = 0; i < datosWeb.productos.length; i += chunkSize) {
     chunks.push(datosWeb.productos.slice(i, i + chunkSize));

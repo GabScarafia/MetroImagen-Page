@@ -646,6 +646,7 @@ header nav a:hover {
     justify-content: center;
     align-items: center;
     background: transparent;
+    pointer-events: none;
   }
 
   .nosotros-info h2 {
