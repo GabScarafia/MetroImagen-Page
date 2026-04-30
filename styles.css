@@ -202,8 +202,8 @@ header nav a:hover {
   color: var(--color-blanco);
 }
 
-.caja-roja {
-  background-color: var(--color-rojo);
+.caja-nosotros {
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 12px;
   max-width: 80%;
@@ -254,7 +254,7 @@ header nav a:hover {
 
 .grid-productos {
   width: 100%;
-  max-width: min(900px, calc(100vh - 250px));
+  max-width: min(1200px, calc(100vh - 250px));
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -305,7 +305,7 @@ header nav a:hover {
   z-index: 10;
   margin: 0;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
   font-weight: 700;
   color: var(--color-blanco);
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
@@ -320,7 +320,7 @@ header nav a:hover {
 
 /* ------------------- CONTACTO ------------------- */
 .seccion-contacto {
-  background-color: var(--color-rojo);
+  background: radial-gradient(circle at center, #1b1b1b, var(--color-negro-fondo));
   padding: 40px;
   text-align: center;
   display: flex;
@@ -337,9 +337,13 @@ header nav a:hover {
 .formulario-contacto {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   gap: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 15px;
 }
 
 .formulario-contacto input,
