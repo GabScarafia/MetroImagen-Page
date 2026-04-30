@@ -701,13 +701,7 @@ header nav a:hover {
     margin-top: 5px;
   }
 
-  /* Ajuste de form contacto y color */
-  .formulario-contacto {
-    background-color: #2a2a2a;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  }
+  /* Ajuste de form contacto y color - Eliminado para usar estilos generales */
 
 }
 
