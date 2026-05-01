@@ -1,4 +1,7 @@
-/* Variables de color y tipografía */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --color-rojo: #e20613;
   --color-negro: #0c0c0c;
@@ -702,7 +705,12 @@ header nav a:hover {
   }
 
   /* Ajuste de form contacto y color - Eliminado para usar estilos generales */
-
+  .seccion-contacto {
+    padding: 30px 15px;
+  }
+  .formulario-contacto {
+    padding: 25px 15px;
+  }
 }
 
 @media (max-width: 480px) {
