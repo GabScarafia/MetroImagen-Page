@@ -367,7 +367,7 @@ header nav a:hover {
 }
 
 .formulario-contacto button {
-  background-color: var(--color-negro);
+  background-color: var(--color-rojo);
   color: var(--color-blanco);
   border: none;
   padding: 15px;
@@ -706,10 +706,11 @@ header nav a:hover {
 
   /* Ajuste de form contacto y color - Eliminado para usar estilos generales */
   .seccion-contacto {
-    padding: 30px 15px;
+    padding: 30px 10px;
   }
   .formulario-contacto {
-    padding: 25px 15px;
+    width: 95%;
+    padding: 25px 20px;
   }
 }
 
