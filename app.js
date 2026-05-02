@@ -70,7 +70,7 @@ function crearMediaTag(url, altText) {
   if (extension.includes('mp4') || extension.includes('webm')) {
     return `<video src="${url}" autoplay muted playsinline></video>`;
   } else {
-    return `<img src="${url}" alt="${altText}">`;
+    return `<img src="${url}" alt="${altText}" loading="lazy">`;
   }
 }
 
@@ -218,7 +218,7 @@ function renderizarProductos() {
     chunk.forEach(prod => {
       itemsHtml += `
         <div class="item-producto" onclick="abrirModal('${prod.id}')">
-          <img src="${prod.portada}" alt="${prod.titulo}">
+          <img src="${prod.portada}" alt="${prod.titulo}" loading="lazy">
           <h3>${prod.titulo}</h3>
         </div>
       `;
