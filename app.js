@@ -258,10 +258,12 @@ function configurarModal() {
     });
   }
 
-  // Cerrar modal cuando se presiona el botón "Atrás" del navegador o celular
-  window.addEventListener('popstate', (e) => {
-    if (modal && modal.classList.contains('activo')) {
-      cerrarModalUI();
+  // Escuchar cambios en el hash (cuando presionan el botón Atrás)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash !== '#modal') {
+      if (modal && modal.classList.contains('activo')) {
+        cerrarModalUI();
+      }
     }
   });
 }
@@ -304,8 +306,8 @@ window.abrirModal = function(id) {
   document.body.classList.add('no-scroll');
   document.documentElement.classList.add('no-scroll');
 
-  // Agregar estado al historial para manejar el botón "Atrás" en móviles
-  history.pushState({ modalOpen: true }, '', '');
+  // Agregar hash al historial para manejar el botón "Atrás" en móviles de forma segura
+  window.location.hash = 'modal';
 
   // Iniciar nuevo slider
   modalSwiperInstance = new Swiper('.swiper-modal', {
@@ -326,8 +328,8 @@ function cerrarModal() {
   const modal = document.getElementById('modal-producto');
   if (modal && modal.classList.contains('activo')) {
     // Si cerramos por UI (botón X o overlay), hacemos history.back() 
-    // para que dispare popstate y no deje basura en el historial.
-    if (history.state && history.state.modalOpen) {
+    // para que dispare hashchange y no deje basura en el historial.
+    if (window.location.hash === '#modal') {
       history.back();
     } else {
       cerrarModalUI();

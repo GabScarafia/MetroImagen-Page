@@ -2,7 +2,7 @@ const datosWeb = {
   empresa: {
     nombre: "Metro imagen",
     whatsapp: "+54 9 11 3494-0132",
-    email: "gabriel.hugo.s@gmail.com",
+    email: "metroimagen@gmail.com",
     descripcionNosotros: `Con más de 30 años de experiencia en la industria, nos especializamos en el diseño, la fabricación y la instalación de letreros, marquesinas y todo tipo de estructuras publicitarias. A lo largo de nuestra trayectoria, hemos acompañado a empresas, comercios y emprendimientos en la construcción de su identidad visual, desarrollando soluciones a medida que combinan funcionalidad, estética y durabilidad.
 Cada proyecto es abordado de manera personalizada, entendiendo las necesidades específicas de cada cliente y el contexto en el que su marca se comunica. Nuestro compromiso con la calidad, el detalle y la innovación nos permite ofrecer piezas que no solo cumplen una función práctica, sino que también potencian la presencia y el impacto de cada negocio en su entorno.`,
     mediaInicio: [
