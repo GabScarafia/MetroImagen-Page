@@ -223,7 +223,7 @@ header nav a:hover {
 /* ------------------- PRODUCTOS ------------------- */
 .seccion-productos {
   padding: 30px 40px 20px 40px;
-  background: radial-gradient(circle at center, #1b1b1b, var(--color-negro-fondo));
+  background: url('img/fondo/FondoPag.jpeg') center/cover fixed no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,7 +323,7 @@ header nav a:hover {
 
 /* ------------------- CONTACTO ------------------- */
 .seccion-contacto {
-  background: radial-gradient(circle at center, #1b1b1b, var(--color-negro-fondo));
+  background: url('img/fondo/FondoPag.jpeg') center/cover fixed no-repeat;
   padding: 40px;
   text-align: center;
   display: flex;
