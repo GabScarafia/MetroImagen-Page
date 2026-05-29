@@ -13,11 +13,11 @@ const datosWeb = {
   <li>Colocación e instalación</li>
 </ul>`,
     mediaInicio: [
-      "img/inicio/FlyerInicioPC_v1.jpeg"
+      "img/inicio/FlyerInicioPC_v2.png"
     ],
     mediaNosotros: [
       // Ejemplo de cómo enlazar fotos locales:
-      "img/nosotros/fullfarma10.png"
+      "img/nosotros/Nosotros.jpeg"
       // Si tuvieras un video, lo agregas así: "img/nosotros/mivideo.mp4"
     ]
   },
@@ -133,15 +133,14 @@ const datosWeb = {
       ]
     },
     {
-      id: "carteles-pie-calle",
-      titulo: "CARTELES CON PIE PARA CALLE",
-      portada: "img/productos/carteles-pie-calle/portada.jpeg",
-      descripcion: "Elementos de señalética portátiles y versátiles, ideales para posicionar en la vereda o ingresos. Fabricados con materiales resistentes y bases estables, son la herramienta perfecta para comunicar promociones diarias o menús, permitiendo un recambio ágil y una interacción directa con el transeúnte.",
+      id: "neon-flex",
+      titulo: "NEÓN FLEX",
+      portada: "img/productos/carteles-pie-calle/neon1.jpeg",
+      descripcion: "Diseños personalizados y cartelería luminosa fabricados con Neón Flex de alta calidad. Una alternativa moderna, resistente y de bajo consumo al neón tradicional de vidrio. Ideal para darle un toque vibrante, estético y llamativo a interiores de locales, eventos o vidrieras.",
       media: [
-        "img/productos/carteles-pie-calle/portada.jpeg",
-        "img/productos/carteles-pie-calle/01.jpg",
-        "img/productos/carteles-pie-calle/02.jpeg",
-        "img/productos/carteles-pie-calle/ej.mp4"
+        "img/productos/carteles-pie-calle/neon1.jpeg",
+        "img/productos/carteles-pie-calle/neon2.jpeg",
+        "img/productos/carteles-pie-calle/neon3.jpeg"
       ]
     }
   ]

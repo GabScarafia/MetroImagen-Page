@@ -141,6 +141,30 @@ header nav a:hover {
   background-color: var(--color-negro);
 }
 
+.texto-inicio-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-texto-inicio {
+  overflow: visible;
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.8)) drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.5));
+}
+
+.svg-texto-inicio text {
+  text-transform: uppercase;
+}
+
 .seccion-inicio .swiper-slide img,
 .seccion-inicio .swiper-slide video {
   width: 100%;
@@ -168,7 +192,7 @@ header nav a:hover {
 .seccion-nosotros {
   display: flex;
   flex-direction: row;
-  background: url('img/fondo/FondoPag.jpeg') center/cover fixed no-repeat;
+  background: var(--color-negro);
 }
 
 .nosotros-slider {
@@ -193,15 +217,15 @@ header nav a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 60px 80px;
+  padding: clamp(20px, 4vh, 60px) clamp(20px, 4vw, 80px);
   box-sizing: border-box;
 }
 
 .nosotros-info h2 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 3vw + 2vh, 5.5rem);
   font-weight: 800;
-  letter-spacing: 3px;
-  margin-bottom: 25px;
+  letter-spacing: 2px;
+  margin-bottom: clamp(10px, 2vh, 25px);
   text-align: left;
   color: var(--color-blanco);
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
@@ -215,10 +239,10 @@ header nav a:hover {
 }
 
 .caja-nosotros p {
-  margin: 0 0 20px 0;
-  font-size: 1.15rem;
+  margin: 0 0 clamp(10px, 1.5vh, 20px) 0;
+  font-size: clamp(0.9rem, 0.8vw + 0.8vh, 1.45rem);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.5;
   color: var(--color-blanco);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.95);
 }
@@ -235,11 +259,11 @@ header nav a:hover {
 }
 
 .nosotros-lista li {
-  font-size: 1.15rem;
+  font-size: clamp(0.9rem, 0.8vw + 0.8vh, 1.45rem);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.5;
   color: var(--color-blanco);
-  margin-bottom: 12px;
+  margin-bottom: clamp(8px, 1vh, 15px);
   position: relative;
   padding-left: 25px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.95);
@@ -249,7 +273,7 @@ header nav a:hover {
   content: "•";
   color: #d80000;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 1vw + 1vh, 1.8rem);
   position: absolute;
   left: 0;
   top: -2px;
@@ -258,7 +282,7 @@ header nav a:hover {
 /* ------------------- PRODUCTOS ------------------- */
 .seccion-productos {
   padding: 30px 40px;
-  background: url('img/fondo/FondoPag.jpeg') center/cover fixed no-repeat;
+  background: var(--color-rojo);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -362,7 +386,7 @@ header nav a:hover {
 
 /* ------------------- CONTACTO ------------------- */
 .seccion-contacto {
-  background: url('img/fondo/FondoPag.jpeg') center/cover fixed no-repeat;
+  background: var(--color-rojo);
   padding: 40px;
   text-align: center;
   display: flex;
