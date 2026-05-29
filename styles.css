@@ -281,7 +281,7 @@ header nav a:hover {
 
 /* ------------------- PRODUCTOS ------------------- */
 .seccion-productos {
-  padding: 30px 40px;
+  padding: clamp(15px, 2vh, 30px) clamp(15px, 2vw, 40px);
   background: var(--color-rojo);
   display: flex;
   flex-direction: column;
@@ -292,8 +292,8 @@ header nav a:hover {
 }
 
 .header-productos {
-  width: 90%;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -306,22 +306,22 @@ header nav a:hover {
 .header-productos h2 {
   margin: 0;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw + 1.5vh, 3rem);
 }
 
 .header-productos span {
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 1vw + 0.5vh, 1.2rem);
   color: #ccc;
   letter-spacing: 1px;
 }
 
 .grid-productos {
-  width: 90%;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, minmax(0, 1fr));
-  gap: 15px;
+  gap: clamp(10px, 1vw + 1vh, 20px);
   flex-grow: 1;
   min-height: 0;
 }
@@ -371,7 +371,7 @@ header nav a:hover {
   z-index: 10;
   margin: 0;
   text-align: center;
-  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw + 1vh, 2.5rem);
   font-weight: 700;
   color: var(--color-blanco);
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
