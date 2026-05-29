@@ -135,7 +135,7 @@ function renderizarNosotros() {
 
   // Insertar texto
   if (textContainer) {
-    textContainer.innerText = datosWeb.empresa.descripcionNosotros;
+    textContainer.innerHTML = datosWeb.empresa.descripcionNosotros;
   }
 
   // Insertar diapositivas en Hero

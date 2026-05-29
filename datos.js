@@ -3,8 +3,15 @@ const datosWeb = {
     nombre: "Metro imagen",
     whatsapp: "+5491132065252",
     email: "Artemetroimagen@gmail.com",
-    descripcionNosotros: `Con más de 30 años de experiencia en la industria, nos especializamos en el diseño, la fabricación y la instalación de letreros, marquesinas y todo tipo de estructuras publicitarias. A lo largo de nuestra trayectoria, hemos acompañado a empresas, comercios y emprendimientos en la construcción de su identidad visual, desarrollando soluciones a medida que combinan funcionalidad, estética y durabilidad.
-Cada proyecto es abordado de manera personalizada, entendiendo las necesidades específicas de cada cliente y el contexto en el que su marca se comunica. Nuestro compromiso con la calidad, el detalle y la innovación nos permite ofrecer piezas que no solo cumplen una función práctica, sino que también potencian la presencia y el impacto de cada negocio en su entorno.`,
+    descripcionNosotros: `<p>Con más de <strong>30 años de experiencia en la industria</strong>, nos especializamos en el diseño, la fabricación y la instalación de letreros, marquesinas y todo tipo de estructuras publicitarias.</p>
+<p>A lo largo de nuestra trayectoria, hemos acompañado a <strong>empresas, comercios y emprendimientos</strong> en la <strong>construcción de su identidad visual</strong>, desarrollando soluciones a medida que combinan <strong>funcionalidad, estética y durabilidad</strong>.</p>
+<p>Cada proyecto es abordado de <strong>manera personalizada</strong>, entendiendo las necesidades específicas de cada cliente y el contexto en el que su marca se comunica. Nuestro compromiso con la calidad, el detalle y la innovación nos permite <strong>ofrecer piezas que no solo cumplen una función práctica, sino que también potencian la presencia y el impacto de cada negocio en su entorno.</strong></p>
+<ul class="nosotros-lista">
+  <li>+30 años de experiencia en el rubro</li>
+  <li>Todo tipo de letreros, marquesinas y estructuras publicitarias.</li>
+  <li>Diseños personalizados y con la medida que necesites.</li>
+  <li>Colocación e instalación</li>
+</ul>`,
     mediaInicio: [
       "img/inicio/FlyerInicioPC_v1.jpeg"
     ],
