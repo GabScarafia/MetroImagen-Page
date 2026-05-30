@@ -3,7 +3,7 @@
 }
 
 :root {
-  --color-rojo: #000000;
+  --color-negro-absoluto: #000000;
   --color-negro: #0c0c0c;
   --color-negro-fondo: #0c0c0c;
   --color-gris-oscuro: #0c0c0c;
@@ -40,7 +40,7 @@ body {
 /* Hamburguesa Menu (Desktop Oculto) */
 .menu-toggle {
   display: none;
-  background: var(--color-rojo);
+  background: var(--color-negro-absoluto);
   border: none;
   padding: 10px;
   border-radius: 8px;
@@ -91,7 +91,7 @@ body {
 
 /* ------------------- HEADER ------------------- */
 header {
-  background: var(--color-rojo);
+  background: var(--color-negro-absoluto);
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;
@@ -174,17 +174,17 @@ header nav a:hover {
 
 .seccion-inicio .swiper-button-next,
 .seccion-inicio .swiper-button-prev {
-  color: var(--color-rojo);
+  color: var(--color-negro-absoluto);
   transform: scale(1.5);
 }
 
 .seccion-inicio .swiper-pagination-bullet {
-  background: var(--color-blanco);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0.7;
 }
 
 .seccion-inicio .swiper-pagination-bullet-active {
-  background: var(--color-blanco);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 
@@ -192,7 +192,7 @@ header nav a:hover {
 .seccion-nosotros {
   display: flex;
   flex-direction: row;
-  background: var(--color-negro);
+  background: var(--color-negro-absoluto);
 }
 
 .nosotros-slider {
@@ -206,7 +206,7 @@ header nav a:hover {
 .nosotros-slider .swiper-slide video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .nosotros-info {
@@ -282,7 +282,7 @@ header nav a:hover {
 /* ------------------- PRODUCTOS ------------------- */
 .seccion-productos {
   padding: clamp(15px, 2vh, 30px) clamp(15px, 2vw, 40px);
-  background: var(--color-rojo);
+  background: var(--color-negro-absoluto);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -386,7 +386,7 @@ header nav a:hover {
 
 /* ------------------- CONTACTO ------------------- */
 .seccion-contacto {
-  background: var(--color-rojo);
+  background: var(--color-negro-absoluto);
   padding: 40px;
   text-align: center;
   display: flex;
@@ -430,7 +430,7 @@ header nav a:hover {
 }
 
 .formulario-contacto button {
-  background-color: var(--color-rojo);
+  background-color: var(--color-negro-absoluto);
   color: var(--color-blanco);
   border: none;
   padding: 15px;
@@ -519,7 +519,7 @@ header nav a:hover {
 }
 
 .modal-info h3 {
-  color: var(--color-rojo);
+  color: var(--color-negro-absoluto);
   font-size: 2rem;
   margin-top: 0;
 }
